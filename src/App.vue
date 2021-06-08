@@ -1,15 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header />
+  <ProfilePic />
+  <AboutMe />
+  <BlogShowcase />
+  <Footer />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+import ProfilePic from './components/ProfilePic.vue'
+import AboutMe from './components/AboutMe.vue'
+import BlogShowcase from './components/BlogShowcase.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Footer,
+    ProfilePic,
+    AboutMe,
+    BlogShowcase,
   }
 }
 </script>
@@ -23,4 +34,21 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+body::before {
+  display:block;
+  content: '';
+  height:80px; /* or whatever */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  color: #0D8D53;
+}
+
+
 </style>
