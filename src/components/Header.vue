@@ -1,10 +1,10 @@
 <template>
     <header>
         <nav>
-            <a href="/"><img src="http://www.kennyporterfield.com/resources/img/kp-logo-black.png" /></a>
+            <router-link to="/"><img src="../assets/logo.png" /></router-link>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><router-link to="/" :class="{ active: homePage }">Home</router-link></li>
+                <li><router-link to="/blog" :class="{ active: blogPage }">Blog</router-link></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
@@ -13,7 +13,11 @@
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    props: {
+    homePage: Boolean,
+    blogPage: Boolean,
+  },
 }
 </script>
 
@@ -65,6 +69,16 @@ a {
 a:hover {
     color: #41b883;
     border-bottom: 2px solid #41b883;
+}
+
+.active {
+    border-bottom: 2px solid #0D8D53;
+}
+
+@media only screen and (max-width: 880px) {
+    nav {
+        max-width: 90%;
+    }
 }
 
 </style>

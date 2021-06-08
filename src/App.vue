@@ -1,26 +1,34 @@
 <template>
-  <Header />
-  <ProfilePic />
-  <AboutMe />
-  <BlogShowcase />
+  <Header :homePage="homePage" :blogPage="blogPage" />
+  <router-view />
   <Footer />
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
-import ProfilePic from './components/ProfilePic.vue'
-import AboutMe from './components/AboutMe.vue'
-import BlogShowcase from './components/BlogShowcase.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
     Footer,
-    ProfilePic,
-    AboutMe,
-    BlogShowcase,
+  },
+  computed: {
+    homePage() {
+      if(this.$route.path === '/') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    blogPage() {
+      if(this.$route.path === '/blog') {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 }
 </script>
@@ -33,6 +41,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+html, body {
+  font-family: "Lato", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+p {
+  font-size: 20px;
 }
 
 body::before {
